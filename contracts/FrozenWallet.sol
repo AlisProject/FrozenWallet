@@ -5,14 +5,15 @@ import './lib/MultiSigWallet.sol';
 
 
 /**
- * The Multisignature wallet contract of ALIS project.
+ * TODO:
 */
-contract AlisFund is MultiSigWallet {
+contract FrozenWallet is MultiSigWallet {
 
-  function AlisFund(address[] _owners, uint _required)
+  function FrozenWallet(address[] _owners, uint _required)
   public
   validRequirement(_owners.length, _required)
   MultiSigWallet(_owners, _required)
   {
+    // TODO:
   }
 }

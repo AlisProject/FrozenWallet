@@ -10,7 +10,6 @@ jobs:
           name: dependencies
           command: |
             yarn
-            yarn truffle install
       - run:
           name: compile
           command: yarn truffle compile

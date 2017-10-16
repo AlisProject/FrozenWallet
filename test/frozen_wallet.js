@@ -1,9 +1,9 @@
-import {FrozenWallet, owners, required} from './helpers/test_helper';
+import { FrozenWallet, owners, required } from './helpers/test_helper';
 
-contract('FrozenWallet', (accounts) => {
+contract('FrozenWallet', () => {
   let wallet;
 
-  beforeEach(async function () {
+  beforeEach(async () => {
     wallet = await FrozenWallet.new(owners, required);
   });
 

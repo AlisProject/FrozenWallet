@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/AlisProject/ico-contracts/tree/master.svg?style=svg)](https://circleci.com/gh/AlisProject/ico-contracts/tree/master)  
+[![CircleCI](https://circleci.com/gh/AlisProject/FrozenWallet/tree/master.svg?style=svg)](https://circleci.com/gh/AlisProject/FrozenWallet/tree/master)  
   
 # [WIP] FrozenWallet
 FrozenWallet is the Ethereum wallet smart-contract with frozen function.  

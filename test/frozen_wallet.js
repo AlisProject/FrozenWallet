@@ -1,10 +1,10 @@
-import { FrozenWallet, owners, required } from './helpers/test_helper';
+import {FrozenWallet, owners, required, thawingTime} from './helpers/test_helper';
 
 contract('FrozenWallet', () => {
   let wallet;
 
   beforeEach(async () => {
-    wallet = await FrozenWallet.new(owners, required);
+    wallet = await FrozenWallet.new(owners, required, thawingTime);
   });
 
   describe('initialized correctly', () => {
@@ -26,6 +26,12 @@ contract('FrozenWallet', () => {
       const actualOwners = await wallet.getOwners();
       const actual = await actualOwners[0];
       actual.should.be.equal(expect);
+    });
+
+    it('should be correct thawing time', async () => {
+      const expect = 2145798000;
+      const actual = await wallet.thawingTime();
+      actual.should.be.bignumber.equal(expect);
     });
   });
 });

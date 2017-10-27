@@ -9,11 +9,13 @@ import './lib/MultiSigWallet.sol';
 */
 contract FrozenWallet is MultiSigWallet {
 
-  function FrozenWallet(address[] _owners, uint _required)
+  uint256 public thawingTime;
+
+  function FrozenWallet(address[] _owners, uint _required, uint256 _thawingTime)
   public
   validRequirement(_owners.length, _required)
   MultiSigWallet(_owners, _required)
   {
-    // TODO:
+    thawingTime = _thawingTime;
   }
 }

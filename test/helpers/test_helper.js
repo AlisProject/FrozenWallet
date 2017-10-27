@@ -16,3 +16,4 @@ export const should = chai
 export const FrozenWallet = artifacts.require('FrozenWallet.sol');
 export const owners = walletParams.owners;
 export const required = walletParams.required;
+export const thawingTime = walletParams.thawingTime;

@@ -1,4 +1,4 @@
-import {FrozenWallet, owners, required, thawingTime} from './helpers/test_helper';
+import { FrozenWallet, owners, required, thawingTime } from './helpers/test_helper';
 
 contract('FrozenWallet', () => {
   let wallet;

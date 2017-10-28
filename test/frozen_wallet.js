@@ -34,4 +34,15 @@ contract('FrozenWallet', () => {
       actual.should.be.bignumber.equal(expect);
     });
   });
+
+  // describe('thawing', () => {
+  //   it('should be reject transfer until thawing time', async () => {
+  //   });
+  //
+  //   it('should be accept transfer just thawing time', async () => {
+  //   });
+  //
+  //   it('should be accept transfer after thawing time', async () => {
+  //   });
+  // });
 });

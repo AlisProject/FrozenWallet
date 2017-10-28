@@ -31,7 +31,7 @@
   },
   "scripts": {
     "test": "scripts/test.sh",
-    "test:all": "scripts/test.sh ./test/*.js",
+    "test:all": "scripts/test.sh ./test/*.js ./test/lib/testExecutionAfterRequirementsChanged.js",
     "debug": "scripts/debug.sh",
     "lint:sol": "yarn run solium -- --dir ./contracts",
     "lint": "yarn run eslint . -- --fix && yarn lint:sol",

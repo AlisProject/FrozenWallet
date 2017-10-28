@@ -16,13 +16,6 @@
       "never"
     ],
     "import/no-absolute-path": "off",
-    "import/no-unresolved": [
-      2,
-      {
-        "ignore": [
-        ]
-      }
-    ],
     "max-len": [
       2,
       120,

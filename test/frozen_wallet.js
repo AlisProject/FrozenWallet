@@ -1,6 +1,16 @@
-import { FrozenWallet, owners, required, thawingTime } from './helpers/test_helper';
+import ether from './helpers/ether';
+import EVMThrow from './helpers/EVMThrow';
+import {
+  FrozenWallet,
+  owners,
+  required,
+  thawingTime,
+  setTimingToBeforeThawingTime,
+  setTimingToThawingTime,
+  setTimingToAfterThawingTime
+} from './helpers/test_helper';
 
-contract('FrozenWallet', () => {
+contract('FrozenWallet', (accounts) => {
   let wallet;
 
   beforeEach(async () => {
@@ -35,14 +45,31 @@ contract('FrozenWallet', () => {
     });
   });
 
-  // describe('thawing', () => {
-  //   it('should be reject transfer until thawing time', async () => {
-  //   });
-  //
-  //   it('should be accept transfer just thawing time', async () => {
-  //   });
-  //
-  //   it('should be accept transfer after thawing time', async () => {
-  //   });
-  // });
+  describe('thawing', () => {
+    it('should be reject transfer until thawing time', async () => {
+      await wallet.submitTransaction(accounts[0], ether(1), '0x')
+        .should.be.rejectedWith(EVMThrow);
+    });
+
+    it('should be accept transfer before 10 seconds from thawing time', async () => {
+      await setTimingToBeforeThawingTime();
+
+      await wallet.submitTransaction(accounts[0], ether(1), '0x')
+        .should.be.rejectedWith(EVMThrow);
+    });
+
+    it('should be accept transfer just thawing time', async () => {
+      await setTimingToThawingTime();
+
+      await wallet.submitTransaction(accounts[0], ether(1), '0x')
+        .should.not.be.fulfilled;
+    });
+
+    it('should be accept transfer after thawing time', async () => {
+      await setTimingToAfterThawingTime();
+
+      await wallet.submitTransaction(accounts[0], ether(1), '0x')
+        .should.not.be.fulfilled;
+    });
+  });
 });

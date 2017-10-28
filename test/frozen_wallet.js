@@ -39,7 +39,7 @@ contract('FrozenWallet', (accounts) => {
     });
 
     it('should be correct thawing time', async () => {
-      const expect = 2145798000;
+      const expect = 1893423600; // 2030/01/01
       const actual = await wallet.thawingTime();
       actual.should.be.bignumber.equal(expect);
     });

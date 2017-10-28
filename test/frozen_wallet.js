@@ -39,7 +39,7 @@ contract('FrozenWallet', (accounts) => {
     });
 
     it('should be correct thawing time', async () => {
-      const expect = 2145798000;
+      const expect = 1893423600; // 2030/01/01
       const actual = await wallet.thawingTime();
       actual.should.be.bignumber.equal(expect);
     });
@@ -70,6 +70,13 @@ contract('FrozenWallet', (accounts) => {
 
       await wallet.submitTransaction(accounts[0], ether(1), '0x')
         .should.not.be.fulfilled;
+    });
+
+    it('should be reject if not wallet owner', async () => {
+      await setTimingToAfterThawingTime();
+
+      await wallet.submitTransaction(accounts[0], ether(1), '0x', { from: accounts[0] })
+        .should.be.rejectedWith(EVMThrow);
     });
   });
 });

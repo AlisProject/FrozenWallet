@@ -1,5 +1,6 @@
 **/*.sol.js
 truffle.js
 test/lib/*
+test/helpers/EVMThrow.js
 test/helpers/advanceToBlock.js
 test/helpers/increaseTime.js

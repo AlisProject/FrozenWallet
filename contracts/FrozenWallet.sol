@@ -1,11 +1,12 @@
-pragma solidity ^0.4.13;
+pragma solidity ^0.4.15;
 
 
 import './lib/MultiSigWallet.sol';
 
 
 /**
- * TODO:
+ * @title Frozen wallet - Allow frozen tokens until specified time.
+ * @author Sota Ishii - <sot528@gmail.com>
 */
 contract FrozenWallet is MultiSigWallet {
 

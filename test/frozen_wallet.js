@@ -7,7 +7,7 @@ import {
   thawingTime,
   setTimingToBeforeThawingTime,
   setTimingToThawingTime,
-  setTimingToAfterThawingTime
+  setTimingToAfterThawingTime,
 } from './helpers/test_helper';
 
 contract('FrozenWallet', (accounts) => {

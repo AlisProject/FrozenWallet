@@ -71,5 +71,12 @@ contract('FrozenWallet', (accounts) => {
       await wallet.submitTransaction(accounts[0], ether(1), '0x')
         .should.not.be.fulfilled;
     });
+
+    it('should be reject if not wallet owner', async () => {
+      await setTimingToAfterThawingTime();
+
+      await wallet.submitTransaction(accounts[0], ether(1), '0x', { from: accounts[0] })
+        .should.be.rejectedWith(EVMThrow);
+    });
   });
 });

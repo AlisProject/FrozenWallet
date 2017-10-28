@@ -1,7 +1,7 @@
 {
   "name": "FrozenWallet",
   "version": "1.0.0",
-  "description": "The FrozenWallet by ALIS project.",
+  "description": "The Frozen Wallet for ICO tokens by ALIS project.",
   "main": "truffle.js",
   "repository": {
     "type": "git",
